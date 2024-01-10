@@ -4,7 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pitter Calc</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho real da sua imagem */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Garante que a página ocupe toda a altura da viewport */
+      background-color: #f3f3f3; /* Adiciona uma cor de fundo de fallback */
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resultado {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .error-message {
+      color: #ff0000;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,7 +104,32 @@
   </form>
 </div>
 
-<script src="script.js"></script>
+<script>
+  function calcularRodadas() {
+    var apostaInicial = parseInt(document.getElementById('apostaInicial').value);
+    var saldoAtual = parseInt(document.getElementById('saldoAtual').value);
+    var multiplicador = parseFloat(document.getElementById('multiplicador').value);
+
+    var rodada = 1;
+
+    if ((multiplicador == 1.08 || multiplicador == 1.10) && apostaInicial * multiplicador < 12) {
+      var errorMessage = "A aposta inicial deve ser maior ou igual a " + Math.ceil(12 / multiplicador) + " para o multiplicador selecionado.";
+      document.getElementById('error').innerHTML = errorMessage;
+      return;
+    }
+
+    document.getElementById('error').innerHTML = ''; // Limpa a mensagem de erro
+
+    while (saldoAtual >= apostaInicial) {
+      saldoAtual -= apostaInicial;
+      apostaInicial = Math.ceil(apostaInicial * multiplicador);
+      rodada++;
+    }
+
+    var resultadoElement = document.getElementById('resultado');
+    resultadoElement.innerHTML = "Quantidade de rodadas possíveis: " + (rodada - 1);
+  }
+</script>
 
 </body>
 </html>
