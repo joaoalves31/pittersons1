@@ -79,9 +79,10 @@
       width: 25%;
       height: auto;
       border-radius: 5px;
-      margin-bottom: 15px;
-    }
+      margin-bottom: 15px;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -94,7 +95,7 @@
     <input type="number" id="apostaInicial" required onkeypress="handleKeyPress(event)">
 
     <label for="saldoAtual">Saldo Atual:</label>
-    <input type="text" id="saldoAtual" required onkeypress="handleKeyPress(event)">
+    <input type="number" id="saldoAtual" required onkeypress="handleKeyPress(event)">
 
     <label for="multiplicador">Multiplicador:</label>
     <select id="multiplicador" required onkeypress="handleKeyPress(event)">
@@ -124,14 +125,14 @@
   }
 
   function calcularRodadas() {
-    var apostaInicial = Math.floor(parseFloat(document.getElementById('apostaInicial').value)); // Arredonda para baixo
-    var saldoAtual = Math.floor(parseFloat(document.getElementById('saldoAtual').value.replace(',', '.'))); // Arredonda para baixo
+    var apostaInicial = parseInt(document.getElementById('apostaInicial').value);
+    var saldoAtual = parseInt(document.getElementById('saldoAtual').value);
     var multiplicador = parseFloat(document.getElementById('multiplicador').value);
 
     var rodada = 1;
 
-    if (multiplicador == 1.10 && apostaInicial * multiplicador < 10) {
-      var errorMessage = "A aposta inicial deve ser maior ou igual a 10 para o multiplicador selecionado.";
+    if ((multiplicador == 1.08 && apostaInicial * multiplicador < 12) {
+      var errorMessage = `A aposta inicial deve ser maior ou igual a ${Math.ceil(12 / multiplicador)} para o multiplicador selecionado.`;
       document.getElementById('error').innerHTML = errorMessage;
       return;
     }
@@ -145,7 +146,7 @@
     }
 
     var resultadoElement = document.getElementById('resultado');
-    resultadoElement.innerHTML = "Quantidade de rodadas possíveis: " + (rodada - 1);
+    resultadoElement.innerHTML = `Quantidade de rodadas possíveis: ${rodada - 1}`;
   }
 </script>
 
