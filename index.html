@@ -79,8 +79,8 @@
       width: 25%;
       height: auto;
       border-radius: 5px;
-      margin-bottom: 15px;
-    }
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
@@ -124,8 +124,8 @@
   }
 
   function calcularRodadas() {
-    var apostaInicial = parseInt(document.getElementById('apostaInicial').value);
-    var saldoAtual = parseFloat(document.getElementById('saldoAtual').value.replace(',', '.'));
+    var apostaInicial = Math.floor(parseFloat(document.getElementById('apostaInicial').value)); // Arredonda para baixo
+    var saldoAtual = Math.floor(parseFloat(document.getElementById('saldoAtual').value.replace(',', '.'))); // Arredonda para baixo
     var multiplicador = parseFloat(document.getElementById('multiplicador').value);
 
     var rodada = 1;
