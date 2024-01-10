@@ -131,7 +131,7 @@
 
     var rodada = 1;
 
-    if ((multiplicador == 1.08 && apostaInicial * multiplicador < 12) {
+    if (multiplicador == 1.08 && apostaInicial * multiplicador < 12) {
       var errorMessage = `A aposta inicial deve ser maior ou igual a ${Math.ceil(12 / multiplicador)} para o multiplicador selecionado.`;
       document.getElementById('error').innerHTML = errorMessage;
       return;
