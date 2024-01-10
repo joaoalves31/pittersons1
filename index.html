@@ -5,7 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pitter Calc</title>
   <style>
-    /* ... (seu estilo permanece inalterado) ... */
+    body {
+      font-family: 'Roboto', Arial, sans-serif; /* Alterado para Roboto */
+      text-align: center;
+      background: #1e1e1e;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      padding: 20px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      background-color: #333;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-family: 'Inter', sans-serif; /* Adicionado Inter */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-family: 'Inter', sans-serif; /* Adicionado Inter */
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif; /* Adicionado Inter */
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resultado {
+      font-weight: bold;
+      margin-top: 15px;
+      color: #fff;
+      font-family: 'Inter', sans-serif; /* Adicionado Inter */
+    }
+
+    .error-message {
+      color: #ff0000;
+      font-size: 14px;
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif; /* Adicionado Inter */
+    }
+
+    /* Adicionando estilos para a imagem na calculadora */
+    #calcImage {
+      width: 25%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
