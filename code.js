@@ -3,7 +3,7 @@ function calcularRodadas() {
   var saldoAtual = parseInt(document.getElementById('saldoAtual').value);
   var multiplicador = parseFloat(document.getElementById('multiplicador').value);
 
-  var rodada = 1;
+  var rodada = 0;
 
   if ((multiplicador == 1.08 || multiplicador == 1.10) && apostaInicial * multiplicador < 12) {
     var errorMessage = "A aposta inicial deve ser maior ou igual a " + Math.ceil(12 / multiplicador) + " para o multiplicador selecionado.";
@@ -20,5 +20,5 @@ function calcularRodadas() {
   }
 
   var resultadoElement = document.getElementById('resultado');
-  resultadoElement.innerHTML = "Quantidade de apostas possíveis: " + (rodada - 1);
+  resultadoElement.innerHTML = "Quantidade de apostas possíveis: " + rodada;
 }
