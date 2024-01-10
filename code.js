@@ -11,7 +11,7 @@ function calcularRodadas() {
     return;
   }
 
-  document.getElementById('error').innerHTML = ''; // Limpa a mensagem de erro
+  document.getElementById('error').innerHTML = ''; // Clear the error message
 
   while (saldoAtual >= apostaInicial) {
     saldoAtual -= apostaInicial;
@@ -21,4 +21,6 @@ function calcularRodadas() {
 
   var resultadoElement = document.getElementById('resultado');
   resultadoElement.innerHTML = "Quantidade de apostas possíveis: " + rodada;
+  document.getElementById('error').innerHTML = ''; // Clear any previous error messages
+  
 }
