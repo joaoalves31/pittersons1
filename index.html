@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background: url('caminho/para/sua/imagem.jpg') center/cover no-repeat #f3f3f3;
+      background: #1e1e1e;
       margin: 0;
       padding: 0;
       display: flex;
@@ -20,20 +20,22 @@
     .container {
       max-width: 400px;
       padding: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #555;
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      background-color: #333;
       margin: auto;
     }
 
     h2 {
       margin-bottom: 20px;
+      color: #fff;
     }
 
     label {
       display: block;
       margin-bottom: 8px;
+      color: #fff;
     }
 
     input, select, button {
@@ -58,6 +60,7 @@
     #resultado {
       font-weight: bold;
       margin-top: 15px;
+      color: #fff;
     }
 
     .error-message {
@@ -65,12 +68,22 @@
       font-size: 14px;
       margin-top: 8px;
     }
+
+    /* Adicionando estilos para a imagem na calculadora */
+    #calcImage {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h2>Calculadora de Apostas</h2>
+  <img id="calcImage" src="https://raw.githubusercontent.com/joaoalves31/pittersons1.github.io/main/pitter.png" alt="Imagem da calculadora"> <!-- Substitua pelo caminho da sua imagem -->
+
+  <h2 style="color: #fff;">Calculadora de Apostas</h2>
   <form id="betForm">
     <label for="apostaInicial">Aposta Inicial:</label>
     <input type="number" id="apostaInicial" required onkeypress="handleKeyPress(event)">
